@@ -1,0 +1,22 @@
+.field {
+  width: 40%;
+  height: 40px;
+  padding: 0 5px;
+  border: none;
+}
+
+.btn {
+  height: 40px;
+  width: 65px;
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  vertical-align: middle;
+  border-color: antiquewhite;
+}
+
+.listHeader {
+  color: white;
+  margin-top: 30px;
+}
