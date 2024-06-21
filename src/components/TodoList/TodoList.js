@@ -7,8 +7,8 @@ function TodoList({ todos, deleteTodo }) {
       {!todos.length ? (
         <h2>Todo list is empty</h2>
       ) : (
-        todos.map((item, index) => (
-          <Todo todo={item} key={index} deleteTodo={deleteTodo} index={index} />
+        todos.map((item) => (
+          <Todo todo={item} key={item.id} deleteTodo={deleteTodo} />
         ))
       )}
     </div>

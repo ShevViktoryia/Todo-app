@@ -1,11 +1,17 @@
-import { RiPushpinFill } from "react-icons/ri";
+import {
+  RiPushpinFill,
+  RiDeleteBin5Line,
+  RiCheckboxBlankCircleLine,
+} from "react-icons/ri";
 import styles from "./Todo.module.css";
 
-function Todo({ todo, index, deleteTodo }) {
+function Todo({ todo, deleteTodo }) {
   return (
-    <div className={styles.todo} onDoubleClick={() => deleteTodo(index)}>
+    <div className={styles.todo} onDoubleClick={() => deleteTodo(todo.id)}>
       <RiPushpinFill className={styles.todoIcon} />
-      <p className={styles.todoText}>{todo}</p>
+      <span className={styles.todoText}>{todo.text}</span>
+      <RiDeleteBin5Line className={styles.deleteIcon} />
+      <RiCheckboxBlankCircleLine className={styles.checkIcon} />
     </div>
   );
 }
