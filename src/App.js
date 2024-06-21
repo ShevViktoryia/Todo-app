@@ -9,18 +9,33 @@ function App() {
     const newTodo = {
       id: uuidv4(),
       text: text,
-      isComleted: false,
+      isCompleted: false,
     };
     setTodoList([...todoList, newTodo]);
   }
   function deleteTodoHandler(id) {
     setTodoList(todoList.filter((todo) => todo.id !== id));
   }
+
+  function toggleTodoHandler(id) {
+    setTodoList(
+      todoList.map((todo) => {
+        return todo.id === id
+          ? { ...todo, isCompleted: !todo.isCompleted }
+          : { ...todo };
+      })
+    );
+  }
+
   return (
     <div className="App">
       <h1>Todo App</h1>
       <TodoForm addTodo={addNewTodo} />
-      <TodoList todos={todoList} deleteTodo={deleteTodoHandler} />
+      <TodoList
+        todos={todoList}
+        deleteTodo={deleteTodoHandler}
+        toggleTodo={toggleTodoHandler}
+      />
     </div>
   );
 }
