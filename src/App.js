@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import TodoForm from "./components/TodoForm/TodoForm";
 import TodoList from "./components/TodoList/TodoList";
+import ActionButtons from "./components/ActionButtons/ActionButtons";
 function App() {
   const [todoList, setTodoList] = useState([]);
   function addNewTodo(text) {
@@ -27,10 +28,30 @@ function App() {
     );
   }
 
+  function resetTodoListHandler() {
+    setTodoList([]);
+  }
+
+  function deleteCompletedTodoHandler() {
+    setTodoList(todoList.filter((todo) => !todo.isCompleted));
+  }
+
+  const completedTodoCount = todoList.filter((todo) => todo.isCompleted).length;
+
   return (
     <div className="App">
       <h1>Todo App</h1>
       <TodoForm addTodo={addNewTodo} />
+      {!todoList.length ? (
+        <></>
+      ) : (
+        <ActionButtons
+          completedTodo={!!completedTodoCount}
+          resetTodoList={resetTodoListHandler}
+          deleteCompletedTodo={deleteCompletedTodoHandler}
+        />
+      )}
+
       <TodoList
         todos={todoList}
         deleteTodo={deleteTodoHandler}

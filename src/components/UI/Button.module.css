@@ -1,0 +1,18 @@
+.btn {
+  height: 40px;
+  width: 10%;
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 1.3rem;
+  border-radius: 6px;
+  vertical-align: middle;
+  border-color: antiquewhite;
+  cursor: pointer;
+  border: none;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-color: rgb(164, 164, 243);
+  color: white;
+}

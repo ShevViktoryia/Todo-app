@@ -1,4 +1,15 @@
-function Button({ onClick, text }) {
-  return <button onClick={onClick}>{text}</button>;
+import styles from "./Button.module.css";
+
+function Button({ onClick, children, title, disabled = false }) {
+  return (
+    <button
+      className={styles.btn}
+      onClick={onClick}
+      title={title}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  );
 }
 export default Button;
